@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+	 <link rel="stylesheet" type="text/css" href="main.css" />
+    <link href='https://fonts.googleapis.com/css?family=Poller+One' rel='stylesheet' type='text/css'>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+
+<div class="robot">
+  <div class="beep"></div>
+  <div class="brain"></div>
+  <div class="torso">
+    <div class="left">j</div>
+    <div class="right">j</div>
+  </div>
+  <div class="foot"></div>
+</div>
+
+<button class="flash">laser eyes on/off</button>
+<button class="color">change color!</button>
+<button class="moves">moves</button>
+<script>
+// When eyes button is clicked, toggle laser class on brain
+$(".flash").click(function() {
+  $(".brain").toggleClass('laser');
+});
+
+
+// When color button is clicked...
+$(".color").click(function() {
+  // assign each named color a random number 0-255
+  var red = Math.floor(Math.random() * 255);
+  var green = Math.floor(Math.random() * 255);
+  var blue = Math.floor(Math.random() * 255);
+  // Generates an RGBA value from blue, green and red
+  var randomRGBA = 'rgba('+red+','+green+','+blue+',1)';
+  //change the body's background color to random colors
+  $("body").css("background", randomRGBA);
+  //Display the RGBA values in an alert window
+   /* alert(randomRGBA); */
+  
+  //Display the three values in an alert window
+  console.log(red + "," + green + "," + blue);
+});
+// When moves button is clicked fade out/in 
+$(".moves").click(function() {
+    $(".robot").slideToggle(500).fadeIn(2000);
+  });
+</script>
+</body>
+</html>
